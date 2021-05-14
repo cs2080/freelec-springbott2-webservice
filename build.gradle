@@ -1,0 +1,38 @@
+buildscript {
+    ext {
+        springBootVersion = '2.4.5'
+        springDependencyManagementVersion = '1.0.11.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}.RELEASE")
+    }
+}
+plugins {
+    id 'java'
+    id 'eclipse'
+    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'io.spring.dependency-management' version "${springDependencyManagementVersion}"
+}
+
+group 'org.junio.book'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+//    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+//    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+//test {
+//    useJUnitPlatform()
+//}
